@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,7 +33,7 @@ class profileScreenState extends State<profileScreen> {
               alignment: Alignment.bottomLeft,
               decoration: new BoxDecoration(
                 image: new DecorationImage(image: new AssetImage(imageVal),
-                colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.6), BlendMode.dstATop),
+                colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.9), BlendMode.dstATop),
                 fit: BoxFit.cover)
               ),
               child: Padding(
@@ -65,22 +66,45 @@ class profileScreenState extends State<profileScreen> {
       child: Card (
         child: Wrap(
           children: <Widget>[
-            Opacity(
-              opacity: 0.5,
-              child: Image(
-                image: new AssetImage(imageVal),
+            Container(
+              constraints: new BoxConstraints.expand(height:300),
+              alignment: Alignment.bottomLeft,
+              decoration: new BoxDecoration(
+                  image: new DecorationImage(image: new AssetImage(imageVal),
+                      colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.9), BlendMode.dstATop),
+                      fit: BoxFit.cover)
               ),
-            ),
-            ListTile(
-              title: Text(title,
-                style: TextStyle(
-                    fontSize: 20
-                ),),
-              subtitle: Text(author,
-              style: TextStyle(
-                fontSize: 20
-              ),),
-            ),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Container(
+                  width: 200,
+                  decoration: new BoxDecoration(
+                    color: Colors.white70,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(title,
+                          style: GoogleFonts.varelaRound(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+
+                        Text('@'+author,
+                          style: GoogleFonts.varelaRound(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
@@ -102,6 +126,7 @@ class profileScreenState extends State<profileScreen> {
           children: <Widget>[
             Align(
               alignment: Alignment.center,
+              //AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
               child: new Row(
                 children: <Widget>[
                   Padding (

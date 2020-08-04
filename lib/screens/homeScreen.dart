@@ -3,9 +3,37 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:receiton/screens/signupScreen.dart';
 import './loginScreen.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:async';
 
 
-class HomeScreen extends StatelessWidget  {
+class HomeScreen extends StatefulWidget {
+  @override
+  State createState() => new homeScreenState();
+}
+
+class homeScreenState extends State<HomeScreen> {
+
+  /*Map data;
+  List userData;
+
+  Future getData() async{
+
+
+    var url = 'https://databases-auth.000webhost.com/sql.php?server=1&db=id14526730_users&table=users&pos=0';
+    http.Response response = await http.get(url);
+    data = jsonDecode(response.body);
+    setState(() {
+      userData = data['users'];
+    });
+    debugPrint(userData.toString());
+  }
+
+  @override
+  void initState() {
+    getData();
+  }*/
 
 @override
   Widget build(BuildContext context) {
@@ -16,117 +44,128 @@ class HomeScreen extends StatelessWidget  {
       title: Text('ReceitON'),
       backgroundColor: Colors.white,
     ),
-    body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Colors.cyan, Color(0xFF80DEEA)])),
-        alignment: Alignment.center,
-          child: Container(
-
+    body: Center(
+      child: SingleChildScrollView(
+        child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(24),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 3,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  )
-                ]
-            ),
+                gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [Colors.cyan, Color(0xFF80DEEA)])),
+            alignment: Alignment.center,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Container(
 
-            child: Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Text('BEM VINDO!',
-                      style: GoogleFonts.quicksand(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w800,
-                        color: Colors.cyan
-                      ),
+                    constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height, maxWidth: MediaQuery.of(context).size.width),
+                    decoration: BoxDecoration(
+
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(24),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 3,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          )
+                        ]
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15, bottom: 25),
-                    child: Container(
-                      width: 200,
-                      height: 40,
-                      child: FlatButton(
 
-
-                        onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => loginScreen(),)
-                        ),
-
-
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Colors.cyan,
-                          width: 1,
-                          style: BorderStyle.solid),
-                          borderRadius: BorderRadius.circular(80.0),
-                        ),
-
-                        padding: EdgeInsets.all(0.00),
-                        child: Container(
-                          constraints: BoxConstraints(minWidth: 120, minHeight: 30),
-                          alignment: Alignment.center,
-                          child: Text('ENTRAR',
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.kanit(
-                                fontSize: 20,
-                                color: Colors.cyan,
-                                fontWeight: FontWeight.w500),
+                    child: Padding(
+                      padding: const EdgeInsets.all(32.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Text('BEM VINDO!',
+                              style: GoogleFonts.quicksand(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.cyan
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                      width: 200,
-                      height: 40,
-                    child: FlatButton(
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15, bottom: 25),
+                            child: Container(
+                              constraints: BoxConstraints(maxWidth: 200, maxHeight: 40),
+                              child: FlatButton(
 
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => signupScreen(),)
-                      ),
-                      color: Colors.cyan,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(80.0),
-                      ),
-                      padding: EdgeInsets.all(0.00),
-                      child: Container(
-                        constraints: BoxConstraints(minWidth: 120, minHeight: 30),
-                        alignment: Alignment.center,
-                        child: Text('CRIAR CONTA',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.kanit(
-                              fontSize: 20,
-                              color: Colors.white,
-                            fontWeight: FontWeight.w500
+
+                                onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) => loginScreen(),)
+                                ),
+
+
+                                shape: RoundedRectangleBorder(
+                                  side: BorderSide(color: Colors.cyan,
+                                  width: 1,
+                                  style: BorderStyle.solid),
+                                  borderRadius: BorderRadius.circular(80.0),
+                                ),
+
+                                padding: EdgeInsets.all(0.00),
+                                child: Container(
+                                  constraints: BoxConstraints(minWidth: 120, minHeight: 30),
+                                  alignment: Alignment.center,
+                                  child: Text('ENTRAR',
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.kanit(
+                                        fontSize: 20,
+                                        color: Colors.cyan,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+
+                          Container(
+                            constraints: BoxConstraints(maxWidth: 200, maxHeight: 40),
+                            child: FlatButton(
+
+                              onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) => signupScreen(),)
+                              ),
+                              color: Colors.cyan,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(80.0),
+                              ),
+                              padding: EdgeInsets.all(0.00),
+                              child: Container(
+                                constraints: BoxConstraints(minWidth: 120, minHeight: 30),
+                                alignment: Alignment.center,
+                                child: Text('CRIAR CONTA',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.kanit(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    fontWeight: FontWeight.w500
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
             ),
-          ),
-        ),
+      ),
+    ),
   );
   }
+
 }

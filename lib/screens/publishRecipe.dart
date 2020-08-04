@@ -79,8 +79,13 @@ class publishRecipeState extends State<publishRecipe>{
                     child: Container(
                       width: double.infinity,
                       height: 300,
-                      color: Colors.black12,
-                      child: _image == null ? Icon (Icons.add_a_photo): Image.file(_image),
+                      decoration: BoxDecoration(
+                        color: Colors.white70,
+                        border: Border.all(color: Colors.cyan,
+                        width: 1),
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      child: _image == null ? Icon (Icons.add_a_photo, color: Colors.cyan,): Image.file(_image),
                     ),
                   ),
                 ),
