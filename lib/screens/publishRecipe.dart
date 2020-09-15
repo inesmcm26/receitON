@@ -50,8 +50,11 @@ class publishRecipeState extends State<publishRecipe>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold (
+      backgroundColor: Colors.white,
       appBar: new AppBar(
-      title: new Text('Publicar Receita')),
+      title: new Text('Publicar Receita'),
+          backgroundColor: Color(0xFFF57F17),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -81,11 +84,11 @@ class publishRecipeState extends State<publishRecipe>{
                       height: 300,
                       decoration: BoxDecoration(
                         color: Colors.white70,
-                        border: Border.all(color: Colors.cyan,
+                        border: Border.all(color: Color(0xFFF57F17),
                         width: 1),
                         borderRadius: BorderRadius.circular(30.0),
                       ),
-                      child: _image == null ? Icon (Icons.add_a_photo, color: Colors.cyan,): Image.file(_image),
+                      child: _image == null ? Icon (Icons.add_a_photo, color: Color(0xFFF57F17),): Image.file(_image),
                     ),
                   ),
                 ),
@@ -96,7 +99,7 @@ class publishRecipeState extends State<publishRecipe>{
                   textAlign: TextAlign.left,
                   style: GoogleFonts.kanit(
                       fontSize: 20,
-                      color: Colors.cyan,
+                      color: Color(0xFFF57F17),
                       fontWeight: FontWeight.w500),
                 ),
               ),
@@ -107,7 +110,7 @@ class publishRecipeState extends State<publishRecipe>{
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: new TextField(
-                      maxLines: 99,
+                      keyboardType: TextInputType.multiline,
                       enabled: _ingredientsTextFieldEnabled,
                       selectionWidthStyle: BoxWidthStyle.max,
                       decoration: InputDecoration(
@@ -124,7 +127,7 @@ class publishRecipeState extends State<publishRecipe>{
                   child: FlatButton(
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.cyan,
+                      side: BorderSide(color: Color(0xFFF57F17),
                           width: 1,
                           style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(80.0),
@@ -135,7 +138,7 @@ class publishRecipeState extends State<publishRecipe>{
                       textAlign: TextAlign.center,
                       style: GoogleFonts.kanit(
                           fontSize: 15,
-                          color: Colors.cyan,
+                          color: Color(0xFFF57F17),
                           fontWeight: FontWeight.w500),
                     ),
                     onPressed: () {
@@ -160,7 +163,7 @@ class publishRecipeState extends State<publishRecipe>{
                   textAlign: TextAlign.left,
                   style: GoogleFonts.kanit(
                       fontSize: 20,
-                      color: Colors.cyan,
+                      color: Color(0xFFF57F17),
                       fontWeight: FontWeight.w500),
                 ),
               ),
@@ -171,7 +174,7 @@ class publishRecipeState extends State<publishRecipe>{
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: new TextField(
-                      maxLines: 99,
+                      keyboardType: TextInputType.multiline,
                       enabled: _methodTextFieldEnabled,
                       selectionWidthStyle: BoxWidthStyle.max,
                       decoration: InputDecoration(
@@ -188,7 +191,7 @@ class publishRecipeState extends State<publishRecipe>{
                   child: FlatButton(
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.cyan,
+                      side: BorderSide(color: Color(0xFFF57F17),
                           width: 1,
                           style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(80.0),
@@ -199,7 +202,7 @@ class publishRecipeState extends State<publishRecipe>{
                       textAlign: TextAlign.center,
                       style: GoogleFonts.kanit(
                           fontSize: 15,
-                          color: Colors.cyan,
+                          color: Color(0xFFF57F17),
                           fontWeight: FontWeight.w500),
                     ),
                     onPressed: () {
@@ -223,7 +226,7 @@ class publishRecipeState extends State<publishRecipe>{
                   textAlign: TextAlign.left,
                   style: GoogleFonts.kanit(
                       fontSize: 20,
-                      color: Colors.cyan,
+                      color: Color(0xFFF57F17),
                       fontWeight: FontWeight.w500),
                 ),
               ),
@@ -242,7 +245,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _VegChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -256,7 +259,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _VeganChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -277,7 +280,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _KetoChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -291,7 +294,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _PaleoChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -312,7 +315,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _LowCarbChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -326,7 +329,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _GlutenFreeChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -347,7 +350,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _DessertChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -361,7 +364,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _LunchChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -382,7 +385,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _SnackChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -396,7 +399,7 @@ class publishRecipeState extends State<publishRecipe>{
                             _DinnerChecked = value;
                           });
                         },
-                        activeColor: Colors.cyan,
+                        activeColor: Color(0xFFF57F17),
                         checkColor: Colors.white,
                       ),
                     ),
@@ -416,7 +419,7 @@ class publishRecipeState extends State<publishRecipe>{
                           MaterialPageRoute(
                             builder: (BuildContext context) => mainScreen(),)
                       ),
-                      color: Colors.cyan,
+                      color: Color(0xFFF57F17),
 
                       padding: EdgeInsets.all(20.0),
                       shape: RoundedRectangleBorder(

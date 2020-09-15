@@ -64,7 +64,10 @@ class signupScreenState extends State<signupScreen>{
           title: new Text(message),
           actions: <Widget>[
             FlatButton(
-              child: new Text("OK"),
+              child: new Text("OK",
+              style: TextStyle(
+                color: Color(0xFFFFA000)),
+              ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -79,7 +82,7 @@ class signupScreenState extends State<signupScreen>{
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (BuildContext context) => mainScreen())
+              builder: (BuildContext context) => mainScreen(passedEmail :emailC.text))
       );
     });
     }
@@ -91,6 +94,7 @@ class signupScreenState extends State<signupScreen>{
     return Scaffold(
       appBar: AppBar(
         title: Text('Sign Up'),
+        backgroundColor: Color(0xFFF57F17),
       ),
       body:  Stack(
                 fit: StackFit.loose,
@@ -125,7 +129,7 @@ class signupScreenState extends State<signupScreen>{
                                   radius: 50.0,
                                   child: Icon(
                                     Icons.perm_identity,
-                                    color: Colors.cyan,
+                                    color: Color(0xFFF57F17),
                                     size: 50,
                                   ),
                                 ),
@@ -138,32 +142,44 @@ class signupScreenState extends State<signupScreen>{
                                   child: new Column(
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: <Widget>[
-                                  new TextFormField(
+                                  new TextField(
                                   decoration: new InputDecoration(
                                       hintText: ('O seu email'),
+                                      focusedBorder: UnderlineInputBorder (
+                                          borderSide: BorderSide (color:  Color(0xFFF57F17))
+                                      )
                                 ),
                                 keyboardType: TextInputType.emailAddress,
                                 controller: emailC,
                               ),
-                              new TextFormField(
+                              new TextField(
                                 decoration: new InputDecoration(
                                   hintText: ('Username'),
+                                    focusedBorder: UnderlineInputBorder (
+                                        borderSide: BorderSide (color:  Color(0xFFF57F17))
+                                    )
                                 ),
                                 keyboardType: TextInputType.text,
                                 maxLength: 50,
                                 controller: usernameC,
                               ),
-                              new TextFormField(
+                              new TextField(
                                 decoration: new InputDecoration(
                                   hintText: ('Password'),
+                                    focusedBorder: UnderlineInputBorder (
+                                        borderSide: BorderSide (color: Color(0xFFF57F17))
+                                    )
                                 ),
                                 keyboardType: TextInputType.text,
                                 obscureText: true,
                                 controller: passwordC,
                               ),
-                              new TextFormField(
+                              new TextField(
                                 decoration: new InputDecoration(
                                   hintText: ('Confirme a Password'),
+                                    focusedBorder: UnderlineInputBorder (
+                                        borderSide: BorderSide (color:  Color(0xFFF57F17))
+                                    )
                                 ),
                                 keyboardType: TextInputType.text,
                                 obscureText: true,
@@ -172,9 +188,9 @@ class signupScreenState extends State<signupScreen>{
                                 Padding(
                                     padding: const EdgeInsets.all(40.0),
                                     child: new FlatButton(
-                                        color: Colors.cyan,
+                                        color: Color(0xFFF57F17),
                                         shape: RoundedRectangleBorder(
-                                          side: BorderSide(color: Colors.cyan,
+                                          side: BorderSide(color: Color(0xFFF57F17),
                                               width: 1,
                                               style: BorderStyle.solid),
                                           borderRadius: BorderRadius.circular(80.0),

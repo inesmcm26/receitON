@@ -28,6 +28,7 @@ dependencies:
   shared_preferences: ^0.5.8
   http: ^0.12.2
   mysql1: ^0.17.1
+  icon_shadow: ^1.0.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -53,6 +54,10 @@ flutter:
   assets:
      - assets/pasta.jpg
      - assets/quesadillas.jpg
+     - assets/whitelogo.jpg
+     - assets/originallogo.jpg
+     - assets/largewhitelogo.jpg
+     - assets/minilogo.PNG
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

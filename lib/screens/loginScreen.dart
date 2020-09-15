@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -56,7 +57,7 @@ class loginScreenState extends State<loginScreen> {
       // Navigate to Profile Screen & Sending Email to Next Screen.
       Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => mainScreen())
+          MaterialPageRoute(builder: (context) => mainScreen(passedEmail: emailC.text)),
       );
     }else{
 
@@ -74,7 +75,10 @@ class loginScreenState extends State<loginScreen> {
             title: new Text(message),
             actions: <Widget>[
               FlatButton(
-                child: new Text("OK"),
+                child: new Text("OK",
+                style: TextStyle(
+                  color: Color(0xFFFFA000)
+                ),),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -86,11 +90,20 @@ class loginScreenState extends State<loginScreen> {
 
   }
 
+
+
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
+        backgroundColor: Color(0xFFF57F17),
       ),
       body: Stack(
             fit: StackFit.loose,
@@ -99,7 +112,7 @@ class loginScreenState extends State<loginScreen> {
                 decoration: new BoxDecoration(image: new DecorationImage(
                     fit: BoxFit.cover,
                     colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.1), BlendMode.dstATop),
-                    image: new AssetImage('assets/quesadillas.jpg')),
+                    image: new AssetImage('assets/pasta.jpg')),
                 ),
               ),
                 Center(
@@ -124,7 +137,7 @@ class loginScreenState extends State<loginScreen> {
                             radius: 50.0,
                             child: Icon(
                               Icons.perm_identity,
-                              color: Colors.cyan,
+                              color: Color(0xFFF57F17),
                               size: 50,
                             ),
                           ),
@@ -137,16 +150,24 @@ class loginScreenState extends State<loginScreen> {
                             child: new Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                new TextFormField(
+                                new TextField(
                                   decoration: new InputDecoration(
                                     hintText: ('O seu email'),
+                                    focusedBorder: UnderlineInputBorder (
+                                      borderSide: BorderSide (color:  Color(0xFFF57F17))
+                                    )
                                   ),
                                   keyboardType: TextInputType.emailAddress,
                                   controller: emailC,
+
+
                                 ),
-                                new TextFormField(
+                                new TextField(
                                   decoration: new InputDecoration(
                                     hintText: ('Password'),
+                                      focusedBorder: UnderlineInputBorder (
+                                          borderSide: BorderSide (color:  Color(0xFFF57F17))
+                                      )
                                   ),
                                   keyboardType: TextInputType.text,
                                   obscureText: true,
@@ -160,9 +181,9 @@ class loginScreenState extends State<loginScreen> {
                         Padding(
                           padding: const EdgeInsets.all(40.0),
                           child: new FlatButton(
-                            color: Colors.cyan,
+                            color: Color(0xFFF57F17),
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(color: Colors.cyan,
+                              side: BorderSide(color: Color(0xFFF57F17),
                                   width: 1,
                                   style: BorderStyle.solid),
                               borderRadius: BorderRadius.circular(80.0),
@@ -181,6 +202,7 @@ class loginScreenState extends State<loginScreen> {
                                       color: Colors.white,
                                       fontWeight: FontWeight.w500),
                                 ),
+
                                 Icon(Icons.check_circle_outline,
                                     color: Colors.white,
                                     size: 30),

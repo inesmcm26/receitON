@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:receiton/screens/profileScreen.dart';
 import 'package:receiton/screens/signupScreen.dart';
+import 'package:icon_shadow/icon_shadow.dart';
 import './loginScreen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -39,7 +41,7 @@ class homeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
   // TODO: implement build
   return Scaffold(
-    backgroundColor: Colors.cyan,
+    backgroundColor: Color(0xFFF57F17),
     appBar: AppBar(
       title: Text('ReceitON'),
       backgroundColor: Colors.white,
@@ -49,11 +51,11 @@ class homeScreenState extends State<HomeScreen> {
         child: Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [Colors.cyan, Color(0xFF80DEEA)])),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Color(0xFFF57F17), Color(0xFFF9A825)])),
             alignment: Alignment.center,
               child: Center(
                 child: Padding(
@@ -87,9 +89,27 @@ class homeScreenState extends State<HomeScreen> {
                               style: GoogleFonts.quicksand(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w800,
-                                color: Colors.cyan
+                                color: Color(0xFFF57F17)
                               ),
                             ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey[400],
+                                      blurRadius: 5.0,
+                                    ),
+                                  ]
+                              ),
+                                child: CircleAvatar(
+                                  radius: 50.0,
+                                  backgroundImage: AssetImage('assets/minilogo.PNG'),
+                                ),
+                              ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 15, bottom: 25),
@@ -106,7 +126,7 @@ class homeScreenState extends State<HomeScreen> {
 
 
                                 shape: RoundedRectangleBorder(
-                                  side: BorderSide(color: Colors.cyan,
+                                  side: BorderSide(color: Color(0xFFF57F17),
                                   width: 1,
                                   style: BorderStyle.solid),
                                   borderRadius: BorderRadius.circular(80.0),
@@ -120,7 +140,7 @@ class homeScreenState extends State<HomeScreen> {
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.kanit(
                                         fontSize: 20,
-                                        color: Colors.cyan,
+                                        color: Color(0xFFF57F17),
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ),
@@ -137,7 +157,7 @@ class homeScreenState extends State<HomeScreen> {
                                   MaterialPageRoute(
                                     builder: (BuildContext context) => signupScreen(),)
                               ),
-                              color: Colors.cyan,
+                              color: Color(0xFFF57F17),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(80.0),
                               ),

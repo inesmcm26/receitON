@@ -118,106 +118,105 @@ class profileScreenState extends State<profileScreen> {
     return Scaffold (
       appBar: new AppBar(
         title: Text('Perfil'),
+        backgroundColor: Color(0xFFF57F17),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Align(
-              alignment: Alignment.center,
-              //AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            Container(
+              width: MediaQuery.of(context).size.width,
               child: new Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Padding (
-                    padding: EdgeInsets.all(20),
-                    child: Icon (Icons.account_circle,
-                    size: 150),
+                  Flexible(
+                    child: Padding (
+                      padding: EdgeInsets.all(20),
+                      child: Icon (Icons.account_circle,
+                      size: 150),
+                    ),
                   ),
-                  new Column (
-                    children: <Widget>[
-                      Center(
-                        child: Row(
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: new Column (
+                      children: <Widget>[
+                        Row(
                           children: <Widget>[
-                            SizedBox(
-                              width: 150,
-                              child: TextField(
-                                enabled: _NameButtonTextEnabled,
-                                controller: myNameController,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                                selectionWidthStyle: BoxWidthStyle.max,
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(60.0)
+                            Flexible(
+                              child: Container(
+                                constraints: BoxConstraints(minWidth: 120, minHeight: 30),
+                                child: TextField(
+                                  enabled: _NameButtonTextEnabled,
+                                  controller: myNameController,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(60.0)
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              width: 65,
-                              child: FlatButton(
-                                color: null,
-                                  onPressed: () {
-                                    setState(() {
-                                      if (_NameButtonTextEnabled) {
-                                        _NameButtonTextEnabled = false;
-
-                                      }
-                                      else {
-                                        _NameButtonTextEnabled = true;
-                                      }
-                                    });
-                                  },
-                                child: _NameButtonTextEnabled ? Icon(Icons.check, color: Colors.cyan,) : Icon(Icons.edit, color: Colors.cyan,),
-                              )
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.only(top: 10),
-                            child: SizedBox(
-                              width: 150,
-                              child: TextField(
-                                controller: myEmailController,
-                                enabled: _EmailButtonTextEnabled,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                                selectionWidthStyle: BoxWidthStyle.max,
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(60.0)
-                                    )
-                                ),
-                              ),
-                            )
-                          ),
-                          SizedBox(
-                              width: 65,
-                              child: FlatButton(
-                                color: null,
+                            FlatButton(
+                              color: null,
                                 onPressed: () {
                                   setState(() {
-                                    if (_EmailButtonTextEnabled) {
-                                      _EmailButtonTextEnabled = false;
+                                    if (_NameButtonTextEnabled) {
+                                      _NameButtonTextEnabled = false;
 
                                     }
                                     else {
-                                      _EmailButtonTextEnabled = true;
+                                      _NameButtonTextEnabled = true;
                                     }
                                   });
                                 },
-                                child: _EmailButtonTextEnabled ? Icon(Icons.check, color: Colors.cyan,) : Icon(Icons.edit, color: Colors.cyan,),
-                              )
-                          ),
-                        ],
-                      ),
-                    ],
+                              child: _NameButtonTextEnabled ? Icon(Icons.check, color: Color(0xFFF57F17),) : Icon(Icons.edit, color: Color(0xFFF57F17),),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Flexible(
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: TextField(
+                                  controller: myEmailController,
+                                  enabled: _EmailButtonTextEnabled,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
+                                  decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(60.0)
+                                      )
+                                  ),
+                                )
+                              ),
+                            ),
+                            FlatButton(
+                              color: null,
+                              onPressed: () {
+                                setState(() {
+                                  if (_EmailButtonTextEnabled) {
+                                    _EmailButtonTextEnabled = false;
+
+                                  }
+                                  else {
+                                    _EmailButtonTextEnabled = true;
+                                  }
+                                });
+                              },
+                              child: _EmailButtonTextEnabled ? Icon(Icons.check, color: Color(0xFFF57F17),) : Icon(Icons.edit, color: Color(0xFFF57F17),),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
 
                 ],
@@ -228,7 +227,7 @@ class profileScreenState extends State<profileScreen> {
               child: Text('AS MINHAS RECEITAS ',
                 style: GoogleFonts.kanit(
                     fontSize: 20,
-                    color: Colors.cyan),
+                    color: Color(0xFFF57F17)),
                 textAlign: TextAlign.left,
               ),
             ),
@@ -257,7 +256,7 @@ class profileScreenState extends State<profileScreen> {
               child: Text('AS MINHAS FAVORITAS ',
                 style: GoogleFonts.kanit(
                     fontSize: 20,
-                    color: Colors.cyan),
+                    color: Color(0xFFF57F17)),
                 textAlign: TextAlign.left,
               ),
             ),
