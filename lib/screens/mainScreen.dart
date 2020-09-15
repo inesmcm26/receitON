@@ -193,9 +193,6 @@ Future <String> getUser(BuildContext context, String passedEmail) async {
   // Getting Server response into variable.
   var username = jsonDecode(response.body.toString());
 
-
-  print(username);
-
   return username;
 
   // If Web call Success than Hide the CircularProgressIndicator.
